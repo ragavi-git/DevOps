@@ -26,3 +26,7 @@ echo "🔥 Running the Docker container on port 80..."
 docker run -d -p 80:80 --name custom-nginx-container ragavit/docker_jenkins
 
 echo "✅ Deployment completed successfully!"
+
+minikube start
+kubectl create deployment hello --image=ragavit/docker_jenkins --port=80
+kubectl expose deployment hello --type=NodePort --port=80
